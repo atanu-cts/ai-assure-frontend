@@ -1,16 +1,8 @@
 {% extends 'layouts/page.njk' %}
-{# {% include 'markdown-renderer.js' %} #}
-
-{% block scripts %}
-  <script src="/marked.js"></script>
-  <script src="/markdown-renderer.js"></script>
-{% endblock %}
 
 {% block pageTitle %}Analysis Status{% endblock %}
 
 {% block content %}
-
-{# <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script> #}
 
 <a href="/" class="govuk-back-link no-print">Back to Upload</a>
 
@@ -22,37 +14,11 @@
   </strong>
 </div>
 
+<script type="text/plain" id="markdownSource">{{ markdownContent | safe }}</script>
 <div id="markdownRenderer" class="govuk-body markdown-content"></div>
+{% endblock %}
 
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const markdownContent = {{ markdownContent | dump | safe }};
-    const html = marked.parse(markdownContent);
-
-    const container = document.getElementById('markdownRenderer');
-    container.innerHTML = html;
-
-    // Apply GOV.UK table styling
-    container.querySelectorAll('table').forEach((table) => {
-      table.classList.add('govuk-table');
-
-      table.querySelectorAll('thead').forEach(thead => {
-        thead.classList.add('govuk-table__head');
-      });
-
-      table.querySelectorAll('tbody').forEach(tbody => {
-        tbody.classList.add('govuk-table__body');
-      });
-
-      table.querySelectorAll('th').forEach(th => {
-        th.classList.add('govuk-table__header');
-      });
-
-      table.querySelectorAll('td').forEach(td => {
-        td.classList.add('govuk-table__cell');
-      });
-    });
-  });
-</script>
-
+{% block bodyEnd %}
+  {{ super() }}
+  <script type="module" src="{{ getAssetPath('markdown-handler.js') }}"></script>
 {% endblock %}

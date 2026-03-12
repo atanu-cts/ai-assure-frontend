@@ -48,19 +48,7 @@ describe('context and cache', () => {
           assetPath: '/public/assets',
           breadcrumbs: [],
           getAssetPath: expect.any(Function),
-          navigation: [
-            {
-              current: true,
-              text: 'Home',
-              href: '/'
-            },
-            {
-              current: false,
-              text: 'Result',
-              href: '/result'
-            }
-          ],
-          serviceName: 'cdp-node-frontend-template',
+          serviceName: 'AI Assure Architecture Governance',
           serviceUrl: '/'
         })
       })
@@ -137,19 +125,7 @@ describe('context and cache', () => {
           assetPath: '/public/assets',
           breadcrumbs: [],
           getAssetPath: expect.any(Function),
-          navigation: [
-            {
-              current: true,
-              text: 'Home',
-              href: '/'
-            },
-            {
-              current: false,
-              text: 'Result',
-              href: '/result'
-            }
-          ],
-          serviceName: 'cdp-node-frontend-template',
+          serviceName: 'AI Assure Architecture Governance',
           serviceUrl: '/'
         })
       })

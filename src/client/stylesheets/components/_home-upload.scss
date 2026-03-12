@@ -1,20 +1,20 @@
 // Home page upload form and history table styles
 
 // Form styling
-#templateType {
+.template-type {
   padding: 8px 12px;
   border: 2px solid #0b0c0c;
   border-radius: 4px;
   font-size: 16px;
-  background: white;
+  background: #ffffff;
   min-width: 200px;
 }
 
-#fileSpinner {
+.file-spinner {
   display: none;
 }
 
-#loadingMessage {
+.loading-message {
   display: none;
 
   .spinner {
@@ -23,7 +23,7 @@
   }
 }
 
-#fileInfo {
+.file-info {
   margin-top: 1em;
   display: none;
 }
@@ -53,12 +53,12 @@
   margin-right: 0.5em;
 }
 
-#pageSize {
-  min-width: 2rem !important;
+.page-size {
+  min-width: 2rem;
 }
 
 // Pagination styling
-#pagination {
+.pagination {
   margin-top: 1em;
 }
 
@@ -77,7 +77,7 @@
 .govuk-table__cell {
   font-size: 14px;
   vertical-align: middle;
-  //padding: 8px 12px;
+  // padding: 8px 12px;
 }
 
 .govuk-table__header {
@@ -96,28 +96,28 @@
 
 .status-analysing {
   background: #ff9800;
-  color: white;
+  color: #ffffff;
   animation: pulse 2s infinite;
 }
 
 .status-processing {
   background: #2196f3;
-  color: white;
+  color: #ffffff;
 }
 
 .status-completed {
   background: #00703c;
-  color: white;
+  color: #ffffff;
 }
 
 .status-failed {
   background: #f44336;
-  color: white;
+  color: #ffffff;
 }
 
 .status-error {
   background: #f44336;
-  color: white;
+  color: #ffffff;
 }
 
 @keyframes pulse {
