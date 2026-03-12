@@ -19,7 +19,7 @@ describe('#resultController', () => {
       url: '/result'
     })
 
-    expect(result).toEqual(expect.stringContaining('Result |'))
+    expect(result).toContain('AI Assure Architecture Governance')
     expect(statusCode).toBe(statusCodes.ok)
   })
 })

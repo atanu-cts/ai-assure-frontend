@@ -13,13 +13,13 @@ const resultsData = JSON.parse(resultsDataRaw)
 
 export const resultController = {
   handler(_request, h) {
-    let markdownContent = '';
+    let markdownContent = ''
 
     try {
-      markdownContent = resultsData?.content?.[0]?.text || '';
+      markdownContent = resultsData?.content?.[0]?.text || ''
     } catch (err) {
-      console.error('Error reading JSON:', err);
-      markdownContent = 'Error loading JSON content.';
+      console.error('Error reading JSON:', err)
+      markdownContent = 'Error loading JSON content.'
     }
 
     return h.view('result/index', {
@@ -30,7 +30,6 @@ export const resultController = {
       //   { text: 'Home', href: '/' },
       //   { text: 'Result' }
       // ]
-    });
+    })
   }
-};
-
+}

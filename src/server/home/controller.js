@@ -19,7 +19,7 @@ const pagination = {
   summary: {
     startItem: 1,
     endItem: Math.min(itemsPerPage, totalItems),
-    totalItems: totalItems
+    totalItems
   },
   items: Array.from({ length: totalPages }, (_, i) => {
     const pageNum = i + 1
@@ -29,14 +29,20 @@ const pagination = {
       current: pageNum === currentPage
     }
   }),
-  previous: currentPage > 1 ? {
-    href: `?page=${currentPage - 1}`,
-    text: 'Previous'
-  } : null,
-  next: currentPage < totalPages ? {
-    href: `?page=${currentPage + 1}`,
-    text: 'Next'
-  } : null
+  previous:
+    currentPage > 1
+      ? {
+          href: `?page=${currentPage - 1}`,
+          text: 'Previous'
+        }
+      : null,
+  next:
+    currentPage < totalPages
+      ? {
+          href: `?page=${currentPage + 1}`,
+          text: 'Next'
+        }
+      : null
 }
 
 export const homeController = {
@@ -45,7 +51,7 @@ export const homeController = {
       pageTitle: 'Home',
       heading: 'Home',
       uploads: uploadsData,
-      pagination: pagination
+      pagination
     })
   }
 }

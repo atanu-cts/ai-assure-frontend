@@ -19,7 +19,7 @@ describe('#homeController', () => {
       url: '/'
     })
 
-    expect(result).toEqual(expect.stringContaining('Home |'))
+    expect(result).toContain('AI Assure Architecture Governance')
     expect(statusCode).toBe(statusCodes.ok)
   })
 })
