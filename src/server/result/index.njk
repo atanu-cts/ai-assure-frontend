@@ -1,0 +1,58 @@
+{% extends 'layouts/page.njk' %}
+{# {% include 'markdown-renderer.js' %} #}
+
+{% block scripts %}
+  <script src="/marked.js"></script>
+  <script src="/markdown-renderer.js"></script>
+{% endblock %}
+
+{% block pageTitle %}Analysis Status{% endblock %}
+
+{% block content %}
+
+{# <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script> #}
+
+<a href="/" class="govuk-back-link no-print">Back to Upload</a>
+
+<div class="govuk-warning-text">
+  <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+  <strong class="govuk-warning-text__text">
+    <span class="govuk-visually-hidden">Warning</span>
+    AI-generated content may be incorrect or incomplete. Please review the analysis result carefully before making any decisions based on them.
+  </strong>
+</div>
+
+<div id="markdownRenderer" class="govuk-body markdown-content"></div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const markdownContent = {{ markdownContent | dump | safe }};
+    const html = marked.parse(markdownContent);
+
+    const container = document.getElementById('markdownRenderer');
+    container.innerHTML = html;
+
+    // Apply GOV.UK table styling
+    container.querySelectorAll('table').forEach((table) => {
+      table.classList.add('govuk-table');
+
+      table.querySelectorAll('thead').forEach(thead => {
+        thead.classList.add('govuk-table__head');
+      });
+
+      table.querySelectorAll('tbody').forEach(tbody => {
+        tbody.classList.add('govuk-table__body');
+      });
+
+      table.querySelectorAll('th').forEach(th => {
+        th.classList.add('govuk-table__header');
+      });
+
+      table.querySelectorAll('td').forEach(td => {
+        td.classList.add('govuk-table__cell');
+      });
+    });
+  });
+</script>
+
+{% endblock %}

@@ -1,0 +1,100 @@
+[
+  {
+    "filename": "Test Project v0.1.docx",
+    "analysisType": "Solution Design Team",
+    "status": "Analysing",
+    "timestamp": "01/09/2026 09:53:00",
+    "resultPath": ""
+  },
+  {
+    "filename": "Solution Design Document - AI Assure v0.01.docx",
+    "analysisType": "Solution Design Team",
+    "status": "Completed",
+    "timestamp": "04/02/2026 20:23:00",
+    "resultPath": "result"
+  },
+  {
+    "filename": "Project Alpha v0.01.docx",
+    "analysisType": "Amber Team",
+    "status": "Error",
+    "timestamp": "02/02/2026 15:13:00",
+    "resultPath": "error"
+  },
+  {
+    "filename": "Project Beta v1.01.docx",
+    "analysisType": "Red Team",
+    "status": "Completed",
+    "timestamp": "01/02/2026 08:45:00",
+    "resultPath": "report"
+  },
+  {
+    "filename": "Project Beta v1.02.docx",
+    "analysisType": "Green Team",
+    "status": "Completed",
+    "timestamp": "01/02/2026 11:45:00",
+    "resultPath": "report"
+  },
+  {
+    "filename": "Project Beta v1.03.docx",
+    "analysisType": "Green Team",
+    "status": "Completed",
+    "timestamp": "01/02/2026 11:45:00",
+    "resultPath": "report"
+  },
+  {
+    "filename": "Project Beta v1.04.docx",
+    "analysisType": "Green Team",
+    "status": "Completed",
+    "timestamp": "01/02/2026 11:45:00",
+    "resultPath": "report"
+  },
+  {
+    "filename": "Project Beta v1.05.docx",
+    "analysisType": "Green Team",
+    "status": "Completed",
+    "timestamp": "01/02/2026 11:45:00",
+    "resultPath": "report"
+  },
+  {
+    "filename": "Project Beta v1.06.docx",
+    "analysisType": "Green Team",
+    "status": "Completed",
+    "timestamp": "01/02/2026 6:45:00",
+    "resultPath": "report"
+  },
+  {
+    "filename": "Project Beta v1.07.docx",
+    "analysisType": "Red Team",
+    "status": "Completed",
+    "timestamp": "01/02/2026 11:45:00",
+    "resultPath": "report"
+  },
+  {
+    "filename": "Project Beta v1.08.docx",
+    "analysisType": "Green Team",
+    "status": "Completed",
+    "timestamp": "04/02/2026 11:48:00",
+    "resultPath": "report"
+  },
+  {
+    "filename": "Project Beta v1.09.docx",
+    "analysisType": "Green Team",
+    "status": "Completed",
+    "timestamp": "01/02/2026 11:45:00",
+    "resultPath": "report"
+  },
+  {
+    "filename": "Project Beta v1.10.docx",
+    "analysisType": "Red Team",
+    "status": "Completed",
+    "timestamp": "03/02/2026 12:45:00",
+    "resultPath": "report"
+  },
+  {
+    "filename": "Project Beta v1.11.docx",
+    "analysisType": "Green Team",
+    "status": "Completed",
+    "timestamp": "01/02/2026 11:45:00",
+    "resultPath": "report"
+  }
+]

@@ -1,0 +1,141 @@
+// Home page upload form and history table styles
+
+// Form styling
+#templateType {
+  padding: 8px 12px;
+  border: 2px solid #0b0c0c;
+  border-radius: 4px;
+  font-size: 16px;
+  background: white;
+  min-width: 200px;
+}
+
+#fileSpinner {
+  display: none;
+}
+
+#loadingMessage {
+  display: none;
+
+  .spinner {
+    display: inline-block;
+    margin-right: 10px;
+  }
+}
+
+#fileInfo {
+  margin-top: 1em;
+  display: none;
+}
+
+// Upload history section
+.upload-history-container {
+  margin-top: 1em;
+}
+
+.upload-history-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1em;
+
+  h2 {
+    margin: 0;
+  }
+}
+
+.upload-history-controls {
+  display: flex;
+  align-items: center;
+}
+
+.page-size-label {
+  margin-right: 0.5em;
+}
+
+#pageSize {
+  min-width: 2rem !important;
+}
+
+// Pagination styling
+#pagination {
+  margin-top: 1em;
+}
+
+.app-pagination-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.app-pagination-row__summary {
+  margin: 0;
+  margin-right: 20px;
+}
+
+// Table cell styling
+.govuk-table__cell {
+  font-size: 14px;
+  vertical-align: middle;
+  //padding: 8px 12px;
+}
+
+.govuk-table__header {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+// Status badge styling
+.status-badge {
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.status-analysing {
+  background: #ff9800;
+  color: white;
+  animation: pulse 2s infinite;
+}
+
+.status-processing {
+  background: #2196f3;
+  color: white;
+}
+
+.status-completed {
+  background: #00703c;
+  color: white;
+}
+
+.status-failed {
+  background: #f44336;
+  color: white;
+}
+
+.status-error {
+  background: #f44336;
+  color: white;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.7;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+// Hint text styling
+.govuk-hint {
+  font-size: 14px;
+  color: #626a6e;
+}
