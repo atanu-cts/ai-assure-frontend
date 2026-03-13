@@ -96,5 +96,54 @@
     "status": "Completed",
     "timestamp": "01/02/2026 11:45:00",
     "resultPath": "report"
+  },
+  {
+    "filename": "Project Beta v1.12.docx",
+    "analysisType": "Amber Team",
+    "status": "Completed",
+    "timestamp": "01/02/2026 11:04:00",
+    "resultPath": "report"
+  },
+  {
+    "filename": "Project Beta v1.13.docx",
+    "analysisType": "Green Team",
+    "status": "Completed",
+    "timestamp": "01/02/2026 6:45:00",
+    "resultPath": "report"
+  },
+  {
+    "filename": "Project Beta v1.14.docx",
+    "analysisType": "Red Team",
+    "status": "Completed",
+    "timestamp": "01/02/2026 8:45:00",
+    "resultPath": "report"
+  },
+  {
+    "filename": "Project Beta v1.15.docx",
+    "analysisType": "Green Team",
+    "status": "Completed",
+    "timestamp": "04/02/2026 11:48:00",
+    "resultPath": "report"
+  },
+  {
+    "filename": "Project Beta v1.16.docx",
+    "analysisType": "Red Team",
+    "status": "Completed",
+    "timestamp": "01/02/2026 11:45:00",
+    "resultPath": "report"
+  },
+  {
+    "filename": "Project Beta v1.17.docx",
+    "analysisType": "Red Team",
+    "status": "Completed",
+    "timestamp": "03/02/2026 12:45:00",
+    "resultPath": "report"
+  },
+  {
+    "filename": "Project Beta v1.18.docx",
+    "analysisType": "Green Team",
+    "status": "Completed",
+    "timestamp": "01/02/2026 10:30:00",
+    "resultPath": "report"
   }
 ]

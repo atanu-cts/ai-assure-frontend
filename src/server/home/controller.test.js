@@ -22,4 +22,24 @@ describe('#homeController', () => {
     expect(result).toContain('AI Assure Architecture Governance')
     expect(statusCode).toBe(statusCodes.ok)
   })
+
+  test('Should show first 10 records on page 1', async () => {
+    const { result, statusCode } = await server.inject({
+      method: 'GET',
+      url: '/?page=1'
+    })
+
+    expect(statusCode).toBe(statusCodes.ok)
+    expect(result).toContain('Showing <strong>1</strong> to <strong>10</strong>')
+  })
+
+  test('Should show remaining 4 records on page 2', async () => {
+    const { result, statusCode } = await server.inject({
+      method: 'GET',
+      url: '/?page=2'
+    })
+
+    expect(statusCode).toBe(statusCodes.ok)
+    expect(result).toContain('Showing <strong>11</strong> to <strong>14</strong>')
+  })
 })
