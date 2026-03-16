@@ -5,3 +5,28 @@
 .app-header {
   border-bottom-color: $app-light-grey;
 }
+
+// Make the header content area a flex row so the service name and
+// sign-out link sit on the same line, with the link pushed to the right.
+.app-header .govuk-header__content {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  float: none;
+  width: auto;
+  flex: 1;
+  padding-left: govuk-spacing(2);
+}
+
+.app-header .govuk-header__navigation {
+  margin-bottom: 0;
+  padding-bottom: govuk-spacing(2);
+}
+
+.app-header .govuk-header__navigation-list {
+  display: flex;
+  align-items: flex-end;
+  margin: 0;
+  padding: 0;
+}
+
