@@ -30,16 +30,20 @@ describe('#homeController', () => {
     })
 
     expect(statusCode).toBe(statusCodes.ok)
-    expect(result).toContain('Showing <strong>1</strong> to <strong>10</strong>')
+    expect(result).toContain(
+      'Showing <strong>1</strong> to <strong>10</strong>'
+    )
   })
 
-  test('Should show remaining 4 records on page 2', async () => {
+  test('Should show records 11 to 20 on page 2', async () => {
     const { result, statusCode } = await server.inject({
       method: 'GET',
       url: '/?page=2'
     })
 
     expect(statusCode).toBe(statusCodes.ok)
-    expect(result).toContain('Showing <strong>11</strong> to <strong>14</strong>')
+    expect(result).toContain(
+      'Showing <strong>11</strong> to <strong>20</strong>'
+    )
   })
 })
