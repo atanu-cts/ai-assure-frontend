@@ -1,4 +1,4 @@
-import { startServer } from './start-server.js'
+import { createServer } from '../../server.js'
 import { statusCodes } from '../constants/status-codes.js'
 
 describe('#serveStaticFiles', () => {
@@ -6,11 +6,13 @@ describe('#serveStaticFiles', () => {
 
   describe('When secure context is disabled', () => {
     beforeEach(async () => {
-      server = await startServer()
+      // Use initialize/inject to avoid binding to a fixed port during tests.
+      server = await createServer()
+      await server.initialize()
     })
 
     afterEach(async () => {
-      await server.stop({ timeout: 0 })
+      await server?.stop({ timeout: 0 })
     })
 
     test('Should serve favicon as expected', async () => {
