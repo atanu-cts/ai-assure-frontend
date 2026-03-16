@@ -17,7 +17,10 @@ function buildPageData(requestedPage) {
   const totalPages = Math.ceil(totalItems / ITEMS_PER_PAGE)
 
   // Clamp page number to valid range
-  const currentPage = Math.min(Math.max(parseInt(requestedPage, 10) || 1, 1), totalPages)
+  const currentPage = Math.min(
+    Math.max(parseInt(requestedPage, 10) || 1, 1),
+    totalPages
+  )
 
   const startIndex = (currentPage - 1) * ITEMS_PER_PAGE
   const endIndex = Math.min(startIndex + ITEMS_PER_PAGE, totalItems)
