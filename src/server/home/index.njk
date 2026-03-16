@@ -73,22 +73,22 @@
   {# Pagination row with summary and navigation #}
     {% if pagination.summary or pagination.items or pagination.previous or pagination.next %}
     <div class="app-pagination-row govuk-!-margin-top-6">
-      {# Pagination summary #}
-      {% if pagination.summary %}
-      <p class="govuk-body app-pagination-row__summary" data-testid="pagination-summary">Showing <strong>{{ pagination.summary.startItem }}</strong> to <strong>{{ pagination.summary.endItem }}</strong> of <strong>{{ pagination.summary.totalItems }}</strong> documents</p>
-      {% endif %}
 
       {# GOV.UK Pagination #}
       {% if pagination.items or pagination.previous or pagination.next %}
-      <div class="app-pagination-row__nav">
         {{ govukPagination({
           items: pagination.items,
           previous: pagination.previous,
           next: pagination.next,
           landmarkLabel: 'Pagination'
         }) }}
-      </div>
       {% endif %}
+
+      {# Pagination summary #}
+      {% if pagination.summary %}
+      <p class="govuk-body app-pagination-row__summary" data-testid="pagination-summary">Showing <strong>{{ pagination.summary.startItem }}</strong> to <strong>{{ pagination.summary.endItem }}</strong> of <strong>{{ pagination.summary.totalItems }}</strong> documents</p>
+      {% endif %}
+
     </div>
     {% endif %}
 

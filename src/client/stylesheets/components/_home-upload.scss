@@ -64,13 +64,19 @@
 
 .app-pagination-row {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+// Override govuk-pagination's default centred margin so it stays left-aligned
+.app-pagination-row .govuk-pagination {
+  margin: 0;
+  justify-content: flex-start;
 }
 
 .app-pagination-row__summary {
   margin: 0;
-  margin-right: 20px;
+  margin-top: 4px;
 }
 
 // Table cell styling
