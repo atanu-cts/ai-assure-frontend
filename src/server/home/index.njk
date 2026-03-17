@@ -72,16 +72,18 @@
 
   {# Pagination row with summary and navigation #}
     {% if pagination.summary or pagination.items or pagination.previous or pagination.next %}
-    <div class="app-pagination-row govuk-!-margin-top-6">
+    <div class="app-pagination-row app-pagination-row--{{ paginationAlignment | default('left') }} govuk-!-margin-top-6">
 
       {# GOV.UK Pagination #}
       {% if pagination.items or pagination.previous or pagination.next %}
+      <div class="app-pagination-row__nav">
         {{ govukPagination({
           items: pagination.items,
           previous: pagination.previous,
           next: pagination.next,
           landmarkLabel: 'Pagination'
         }) }}
+      </div>
       {% endif %}
 
       {# Pagination summary #}

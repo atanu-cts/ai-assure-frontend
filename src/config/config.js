@@ -57,6 +57,14 @@ export const config = convict({
     default: '/public',
     env: 'ASSET_PATH'
   },
+  pagination: {
+    alignment: {
+      doc: 'Pagination alignment for summary and navigation',
+      format: ['left', 'right'],
+      default: 'left',
+      env: 'PAGINATION_ALIGNMENT'
+    }
+  },
   isProduction: {
     doc: 'If this application running in the production environment',
     format: Boolean,

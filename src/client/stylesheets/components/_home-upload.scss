@@ -65,18 +65,46 @@
 .app-pagination-row {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
 }
 
-// Override govuk-pagination's default centred margin so it stays left-aligned
+.app-pagination-row__nav {
+  display: flex;
+}
+
+// Override govuk-pagination's default centred margin so alignment is controlled by the row modifier.
 .app-pagination-row .govuk-pagination {
   margin: 0;
-  justify-content: flex-start;
 }
 
 .app-pagination-row__summary {
   margin: 0;
   margin-top: 4px;
+}
+
+.app-pagination-row--left {
+  align-items: flex-start;
+}
+
+.app-pagination-row--left .app-pagination-row__nav,
+.app-pagination-row--left .govuk-pagination {
+  justify-content: flex-start;
+}
+
+.app-pagination-row--left .app-pagination-row__summary {
+  text-align: left;
+}
+
+.app-pagination-row--right {
+  align-items: flex-end;
+}
+
+.app-pagination-row--right .app-pagination-row__nav,
+.app-pagination-row--right .govuk-pagination {
+  justify-content: flex-end;
+}
+
+.app-pagination-row--right .app-pagination-row__summary {
+  text-align: right;
 }
 
 // Table cell styling

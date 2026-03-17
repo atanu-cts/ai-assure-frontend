@@ -5,6 +5,7 @@
 import { readFileSync } from 'fs'
 import { fileURLToPath } from 'url'
 import { dirname } from 'path'
+import { config } from '../../config/config.js'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const uploadsDataRaw = readFileSync(`${__dirname}/uploads.json`, 'utf8')
@@ -66,7 +67,8 @@ export const homeController = {
       pageTitle: 'Home',
       heading: 'Home',
       uploads: pageUploads,
-      pagination
+      pagination,
+      paginationAlignment: config.get('pagination.alignment')
     })
   }
 }
