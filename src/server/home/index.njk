@@ -56,7 +56,7 @@
         <td class="govuk-table__cell">{{ upload.timestamp }}</td>
         <td class="govuk-table__cell">
           {% if upload.status == 'Completed' %}
-            <a href="/result" class="govuk-link">View Results</a>
+            <a href="/result?docID={{ upload.docID }}" class="govuk-link">View Results</a>
           {% elif upload.status == 'Error' %}
             
           {% else %}

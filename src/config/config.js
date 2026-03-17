@@ -65,6 +65,27 @@ export const config = convict({
       env: 'PAGINATION_ALIGNMENT'
     }
   },
+  result: {
+    mockData: {
+      doc: 'Use local mock result files instead of invoking the result API',
+      format: Boolean,
+      default: true,
+      env: 'MOCK_DATA_RESULT'
+    },
+    apiUrl: {
+      doc: 'Result API endpoint used when mockData is disabled',
+      format: String,
+      nullable: true,
+      default: null,
+      env: 'RESULT_API_URL'
+    },
+    apiTimeoutMs: {
+      doc: 'Timeout for result API requests in milliseconds',
+      format: Number,
+      default: 15000,
+      env: 'RESULT_API_TIMEOUT_MS'
+    }
+  },
   isProduction: {
     doc: 'If this application running in the production environment',
     format: Boolean,
