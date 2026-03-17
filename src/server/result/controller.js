@@ -102,7 +102,9 @@ async function getApiResultContent(docID) {
     })
 
     if (!response.ok) {
-      throw new Error(`Result API request failed with status ${response.status}`)
+      throw new Error(
+        `Result API request failed with status ${response.status}`
+      )
     }
 
     const bodyText = await response.text()
