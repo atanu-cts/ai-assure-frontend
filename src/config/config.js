@@ -17,7 +17,7 @@ convict.addFormats(convictFormatWithValidator)
 
 export const config = convict({
   serviceVersion: {
-    doc: 'The service version, this variable is injected into your docker container in CDP environments',
+    doc: 'The service version, injected into the docker container at deployment time',
     format: String,
     nullable: true,
     default: null,
@@ -207,7 +207,7 @@ export const config = convict({
     keyPrefix: {
       doc: 'Redis cache key prefix name used to isolate the cached results across multiple clients',
       format: String,
-      default: 'cdp-node-frontend-template:',
+      default: 'ai-assure-frontend:',
       env: 'REDIS_KEY_PREFIX'
     },
     useSingleInstanceCache: {
@@ -233,14 +233,6 @@ export const config = convict({
       doc: 'Use a cache and recompile templates each time',
       format: Boolean,
       default: isDevelopment
-    }
-  },
-  tracing: {
-    header: {
-      doc: 'Which header to track',
-      format: String,
-      default: 'x-cdp-request-id',
-      env: 'TRACING_HEADER'
     }
   }
 })

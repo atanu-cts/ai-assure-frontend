@@ -16,18 +16,28 @@ vi.mock('ioredis', () => ({
 }))
 
 describe('#buildRedisClient', () => {
+  beforeEach(() => {
+    vi.clearAllMocks()
+  })
+
   describe('When Redis Single InstanceCache is requested', () => {
     beforeEach(() => {
-      buildRedisClient(config.get('redis'))
+      buildRedisClient({ ...config.get('redis'), useSingleInstanceCache: true })
     })
 
     test('Should instantiate a single Redis client', () => {
-      expect(Redis).toHaveBeenCalledWith({
-        db: 0,
-        host: '127.0.0.1',
-        keyPrefix: 'cdp-node-frontend-template:',
-        port: 6379
-      })
+      expect(Redis).toHaveBeenCalledWith(
+        expect.objectContaining({
+          db: 0,
+          host: '127.0.0.1',
+          keyPrefix: 'ai-assure-frontend:',
+          port: 6379
+        })
+      )
+    })
+
+    test('Should not instantiate a Redis Cluster', () => {
+      expect(Cluster).not.toHaveBeenCalled()
     })
   })
 
@@ -47,11 +57,15 @@ describe('#buildRedisClient', () => {
         [{ host: '127.0.0.1', port: 6379 }],
         {
           dnsLookup: expect.any(Function),
-          keyPrefix: 'cdp-node-frontend-template:',
+          keyPrefix: 'ai-assure-frontend:',
           redisOptions: { db: 0, password: 'pass', tls: {}, username: 'user' },
           slotsRefreshTimeout: 10000
         }
       )
+    })
+
+    test('Should not instantiate a single Redis client', () => {
+      expect(Redis).not.toHaveBeenCalled()
     })
   })
 })

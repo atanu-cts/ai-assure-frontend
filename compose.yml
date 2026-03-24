@@ -22,7 +22,7 @@ services:
       start_period: 5s
       retries: 3
     networks:
-      - cdp-tenant
+      - app-network
 
   redis:
     image: redis:7.2.3-alpine3.18
@@ -30,12 +30,12 @@ services:
       - '6379:6379'
     restart: always
     networks:
-      - cdp-tenant
+      - app-network
 
   mongodb:
     image: mongo:6.0.13
     networks:
-      - cdp-tenant
+      - app-network
     ports:
       - '27017:27017'
     volumes:
@@ -65,7 +65,7 @@ services:
       LOCALSTACK_ENDPOINT: http://localstack:4566
       USE_SINGLE_INSTANCE_CACHE: true
     networks:
-      - cdp-tenant
+      - app-network
 
   # your-backend:
   #   image: defradigital/your-backend:${YOUR_BACKEND_VERSION:-latest}
@@ -86,7 +86,7 @@ services:
   #     NODE_ENV: development
   #     LOCALSTACK_ENDPOINT: http://localstack:4566
   #   networks:
-  #     - cdp-tenant
+  #     - app-network
 
 ################################################################################
 
@@ -94,5 +94,5 @@ volumes:
   mongodb-data:
 
 networks:
-  cdp-tenant:
+  app-network:
     driver: bridge
