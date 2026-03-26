@@ -1,0 +1,21 @@
+{% extends 'layouts/page.njk' %}
+{% from "govuk/components/panel/macro.njk" import govukPanel %}
+
+{% block pageTitle %}Not authorized{% endblock %}
+
+{% block content %}
+
+  {{ govukPanel({
+    titleText: "You are not authorized",
+    html: "You do not have access to AI Assure Architecture Governance."
+  }) }}
+
+  <p class="govuk-body govuk-!-margin-top-6">
+    If you think this is a mistake, contact your administrator.
+  </p>
+
+  <p class="govuk-body">
+    <a class="govuk-link" href="/signout">Sign out</a> and try again with the correct account.
+  </p>
+
+{% endblock %}
