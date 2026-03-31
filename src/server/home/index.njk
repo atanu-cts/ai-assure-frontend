@@ -4,32 +4,40 @@
 
 {% block pageTitle %}Upload Document{% endblock %}
 
-
 {% block content %}
 
 <h1 class="govuk-heading-m">Upload the document to generate AI-powered insights</h1>
-<form id="uploadForm" action="/upload" method="post" enctype="multipart/form-data" onsubmit="return handleFormSubmit(event)">
-  <div class="govuk-form-group">
+
+<form id="uploadForm" method="post" enctype="multipart/form-data" novalidate>
+  <div class="govuk-form-group" id="templateTypeGroup">
     <label class="govuk-label" for="templateType">
       Document Template Type
     </label>
-    <select class="govuk-select" id="templateType" name="templateType" required oninvalid="this.setCustomValidity('Please select an Template Type')" oninput="this.setCustomValidity('')">
+    <p class="govuk-error-message" id="templateTypeError" hidden>
+      <span class="govuk-visually-hidden">Error:</span>
+      <span id="templateTypeErrorText"></span>
+    </p>
+    <select class="govuk-select" id="templateType" name="templateType" required aria-describedby="templateTypeError">
       <option value="">Select Template Type</option>
-      <option value="red" {% if templateType == 'red' %}selected{% endif %}>Red Team</option>
-      <option value="green" {% if templateType == 'green' %}selected{% endif %}>Green Team</option>
+      <option value="SDA" {% if templateType == 'SDA' %}selected{% endif %}>SDA</option>
     </select>
   </div>
-  <div class="govuk-form-group">
+  <div class="govuk-form-group" id="policyDocxGroup">
     <label class="govuk-label" for="policyDocx">Select DOCX file</label>
+    <p class="govuk-error-message" id="policyDocxError" hidden>
+      <span class="govuk-visually-hidden">Error:</span>
+      <span id="policyDocxErrorText"></span>
+    </p>
     <div class="file-selection-area">
       <input class="govuk-file-upload" id="policyDocx" name="policyDocx" type="file"
         accept=".docx,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
-        required onchange="">
+        required
+        aria-describedby="policyDocxError">
       <div id="fileSpinner" class="spinner"></div>
     </div>
   </div>
   {{ govukButton({ text: "Upload", attributes: { type: "submit", id: "submitButton" } }) }}
-  </form>
+</form>
 
 
 <div class="govuk-form-group upload-history-container">

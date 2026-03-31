@@ -1,5 +1,15 @@
 // Home page upload form and history table styles
 
+// File upload error state
+.govuk-file-upload--error {
+  border-color: govuk-colour('red');
+
+  &:focus {
+    border-color: govuk-colour('red');
+    outline-color: govuk-colour('red');
+  }
+}
+
 // Form styling
 .template-type {
   padding: 8px 12px;
