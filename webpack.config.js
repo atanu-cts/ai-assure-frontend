@@ -168,15 +168,8 @@ export default {
           from: path.join(govukFrontendPath, 'dist/govuk/assets'),
           to: 'assets',
           globOptions: {
-            ignore: [
-              path.join(govukFrontendPath, 'dist/govuk/assets/rebrand'),
-              path.join(govukFrontendPath, 'dist/govuk/assets/images')
-            ]
+            ignore: [path.join(govukFrontendPath, 'dist/govuk/assets/images')]
           }
-        },
-        {
-          from: path.join(govukFrontendPath, 'dist/govuk/assets/rebrand'),
-          to: 'assets'
         }
       ]
     })

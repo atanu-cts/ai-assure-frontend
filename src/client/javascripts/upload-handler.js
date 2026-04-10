@@ -24,7 +24,7 @@ function showTemplateError(message) {
   if (!group || !errMsg || !errText || !sel) return
 
   errText.textContent = message
-  errMsg.hidden = false
+  errMsg.style.display = 'block'
   group.classList.add('govuk-form-group--error')
   sel.classList.add('govuk-select--error')
 }
@@ -38,7 +38,7 @@ function clearTemplateError() {
   if (!group || !errMsg || !errText || !sel) return
 
   errText.textContent = ''
-  errMsg.hidden = true
+  errMsg.style.display = 'none'
   group.classList.remove('govuk-form-group--error')
   sel.classList.remove('govuk-select--error')
 }
@@ -52,7 +52,7 @@ function showFileError(message) {
   if (!group || !errMsg || !errText || !input) return
 
   errText.textContent = message
-  errMsg.hidden = false
+  errMsg.style.display = 'block'
   group.classList.add('govuk-form-group--error')
   input.classList.add('govuk-file-upload--error')
 }
@@ -66,7 +66,7 @@ function clearFileError() {
   if (!group || !errMsg || !errText || !input) return
 
   errText.textContent = ''
-  errMsg.hidden = true
+  errMsg.style.display = 'none'
   group.classList.remove('govuk-form-group--error')
   input.classList.remove('govuk-file-upload--error')
 }

@@ -1,12 +1,17 @@
 // Home page upload form and history table styles
 
+// Initially hidden validation error messages (shown via JS)
+.app-error-message {
+  display: none;
+}
+
 // File upload error state
 .govuk-file-upload--error {
-  border-color: govuk-colour('red');
+  border-color: #ca3535;
 
   &:focus {
-    border-color: govuk-colour('red');
-    outline-color: govuk-colour('red');
+    border-color: #ca3535;
+    outline-color: #ca3535;
   }
 }
 

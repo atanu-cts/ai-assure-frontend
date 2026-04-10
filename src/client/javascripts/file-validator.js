@@ -23,20 +23,6 @@ function readBytes(file, length) {
 }
 
 /**
- * Read the entire file as a Uint8Array.
- * @param {File} file
- * @returns {Promise<Uint8Array>}
- */
-function readAllBytes(file) {
-  return new Promise((resolve, reject) => {
-    const reader = new FileReader()
-    reader.onload = () => resolve(new Uint8Array(reader.result))
-    reader.onerror = () => reject(new Error('Failed to read file'))
-    reader.readAsArrayBuffer(file)
-  })
-}
-
-/**
  * Check whether a byte array starts with the given magic bytes.
  * @param {Uint8Array} bytes
  * @param {number[]} magic
@@ -108,7 +94,7 @@ export async function validateDocxFile(file) {
   if (file.size > MAX_FILE_SIZE_BYTES) {
     return {
       valid: false,
-      message: 'File exceeds the maximum allowed size of 50 MB.'
+      message: `The selected file must be smaller than 5MB.`
     }
   }
 
@@ -144,7 +130,7 @@ export async function validateDocxFile(file) {
   // ── 6. Read full file for deeper checks ───────────────────────────────────
   let allBytes
   try {
-    allBytes = await readAllBytes(file)
+    allBytes = await readBytes(file, file.size)
   } catch {
     return {
       valid: false,

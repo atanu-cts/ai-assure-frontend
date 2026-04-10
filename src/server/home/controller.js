@@ -72,3 +72,19 @@ export const homeController = {
     })
   }
 }
+
+export const uploadController = {
+  options: {
+    payload: {
+      multipart: true,
+      output: 'stream',
+      parse: true,
+      maxBytes: 5 * 1024 * 1024 // 5MB
+    }
+  },
+  handler(request, h) {
+    // TODO: process uploaded file (request.payload.policyDocx)
+    // and redirect to result page or back with error
+    return h.redirect('/')
+  }
+}

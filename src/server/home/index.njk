@@ -13,25 +13,24 @@
     <label class="govuk-label" for="templateType">
       Document Template Type
     </label>
-    <p class="govuk-error-message" id="templateTypeError" hidden>
+    <p class="govuk-error-message app-error-message" id="templateTypeError">
       <span class="govuk-visually-hidden">Error:</span>
       <span id="templateTypeErrorText"></span>
     </p>
-    <select class="govuk-select" id="templateType" name="templateType" required aria-describedby="templateTypeError">
+    <select class="govuk-select" id="templateType" name="templateType" aria-describedby="templateTypeError">
       <option value="">Select Template Type</option>
       <option value="SDA" {% if templateType == 'SDA' %}selected{% endif %}>SDA</option>
     </select>
   </div>
   <div class="govuk-form-group" id="policyDocxGroup">
     <label class="govuk-label" for="policyDocx">Select DOCX file</label>
-    <p class="govuk-error-message" id="policyDocxError" hidden>
+    <p class="govuk-error-message app-error-message" id="policyDocxError">
       <span class="govuk-visually-hidden">Error:</span>
       <span id="policyDocxErrorText"></span>
     </p>
     <div class="file-selection-area">
       <input class="govuk-file-upload" id="policyDocx" name="policyDocx" type="file"
         accept=".docx,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
-        required
         aria-describedby="policyDocxError">
       <div id="fileSpinner" class="spinner"></div>
     </div>
@@ -73,7 +72,6 @@
         </td>
       </tr>
       {% endfor %}
-      </tr>
     </tbody>
   </table>
   

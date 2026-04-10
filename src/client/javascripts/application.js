@@ -3,7 +3,6 @@ import {
   Button,
   Checkboxes,
   ErrorSummary,
-  Header,
   Radios,
   SkipLink
 } from 'govuk-frontend'
@@ -13,7 +12,6 @@ import { initUploadHandler } from './upload-handler.js'
 createAll(Button)
 createAll(Checkboxes)
 createAll(ErrorSummary)
-createAll(Header)
 createAll(Radios)
 createAll(SkipLink)
 
