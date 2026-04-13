@@ -48,6 +48,7 @@ describe('context and cache', () => {
           assetPath: '/public/assets',
           breadcrumbs: [],
           getAssetPath: expect.any(Function),
+          maxUploadFileSizeBytes: 52428800,
           serviceName: 'AI Assure Architecture Governance',
           serviceUrl: '/'
         })
@@ -125,6 +126,7 @@ describe('context and cache', () => {
           assetPath: '/public/assets',
           breadcrumbs: [],
           getAssetPath: expect.any(Function),
+          maxUploadFileSizeBytes: 52428800,
           serviceName: 'AI Assure Architecture Governance',
           serviceUrl: '/'
         })

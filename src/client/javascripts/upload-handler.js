@@ -78,6 +78,11 @@ export function initUploadHandler() {
   const form = document.getElementById('uploadForm')
   const fileInput = document.getElementById('policyDocx')
 
+  const maxFileSizeBytesRaw = fileInput?.dataset?.maxFileSizeBytes
+  const maxFileSizeBytes = maxFileSizeBytesRaw
+    ? Number(maxFileSizeBytesRaw)
+    : undefined
+
   // ── Template type: clear inline error on change ────────────────────────────
   if (sel) {
     sel.addEventListener('change', function () {
@@ -92,7 +97,7 @@ export function initUploadHandler() {
       const file = this.files[0]
       if (!file) return
 
-      const result = await validateDocxFile(file)
+      const result = await validateDocxFile(file, { maxFileSizeBytes })
       if (!result.valid) {
         showFileError(result.message)
         this.value = '' // clear so the invalid file cannot be submitted
@@ -123,7 +128,7 @@ export function initUploadHandler() {
         showFileError('Please select a file')
         hasError = true
       } else {
-        const result = await validateDocxFile(file)
+        const result = await validateDocxFile(file, { maxFileSizeBytes })
         if (!result.valid) {
           showFileError(result.message)
           hasError = true

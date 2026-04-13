@@ -31,7 +31,8 @@
     <div class="file-selection-area">
       <input class="govuk-file-upload" id="policyDocx" name="policyDocx" type="file"
         accept=".docx,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
-        aria-describedby="policyDocxError">
+        aria-describedby="policyDocxError"
+        data-max-file-size-bytes="{{ maxUploadFileSizeBytes }}">
       <div id="fileSpinner" class="spinner"></div>
     </div>
   </div>

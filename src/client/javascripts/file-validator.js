@@ -1,4 +1,5 @@
-const MAX_FILE_SIZE_BYTES = 5 * 1024 * 1024 // 5 MB
+const DEFAULT_MAX_FILE_SIZE_MB = 50
+const DEFAULT_MAX_FILE_SIZE_BYTES = DEFAULT_MAX_FILE_SIZE_MB * 1024 * 1024 // 50 MB
 
 // ZIP local file header signature: PK\x03\x04
 const ZIP_MAGIC = [0x50, 0x4b, 0x03, 0x04]
@@ -80,7 +81,14 @@ function zipContainsEncryptionInfo(bytes) {
  * @param {File} file
  * @returns {Promise<{ valid: boolean, message: string }>}
  */
-export async function validateDocxFile(file) {
+export async function validateDocxFile(file, { maxFileSizeBytes } = {}) {
+  const effectiveMaxFileSizeBytes =
+    typeof maxFileSizeBytes === 'number' &&
+    Number.isFinite(maxFileSizeBytes) &&
+    maxFileSizeBytes > 0
+      ? maxFileSizeBytes
+      : DEFAULT_MAX_FILE_SIZE_BYTES
+
   // ── 1. Zero-byte check ────────────────────────────────────────────────────
   if (!file || file.size === 0) {
     return {
@@ -91,10 +99,11 @@ export async function validateDocxFile(file) {
   }
 
   // ── 2. File size check ────────────────────────────────────────────────────
-  if (file.size > MAX_FILE_SIZE_BYTES) {
+  if (file.size > effectiveMaxFileSizeBytes) {
+    const maxSizeMb = effectiveMaxFileSizeBytes / (1024 * 1024)
     return {
       valid: false,
-      message: `The selected file must be smaller than 5MB.`
+      message: `The selected file must be smaller than ${maxSizeMb}MB.`
     }
   }
 
