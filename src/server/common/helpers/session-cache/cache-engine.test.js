@@ -56,4 +56,39 @@ describe('#getCacheEngine', () => {
       )
     })
   })
+
+  describe('When Memory cache is used in production', () => {
+    beforeEach(() => {
+      vi.resetModules()
+    })
+
+    test('Should log error warning when isProduction is true and memory cache requested', async () => {
+      vi.doMock('../../../../config/config.js', () => ({
+        config: {
+          get: vi.fn((key) => {
+            if (key === 'isProduction') return true
+            if (key === 'redis') {
+              return {
+                host: '127.0.0.1',
+                username: '',
+                password: '',
+                keyPrefix: 'ai-assure-frontend:',
+                useSingleInstanceCache: true,
+                useTLS: false
+              }
+            }
+            return undefined
+          })
+        }
+      }))
+
+      const { getCacheEngine: getCacheEngineProd } =
+        await import('./cache-engine.js')
+      getCacheEngineProd('memory')
+
+      expect(mockLoggerError).toHaveBeenCalledWith(
+        'Catbox Memory is for local development only, it should not be used in production!'
+      )
+    })
+  })
 })
